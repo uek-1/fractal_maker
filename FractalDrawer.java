@@ -19,7 +19,7 @@ public class FractalDrawer {
             drawCircleFractal(100,0,0,Color.decode("red"),canvas,0);
         }
         else if (type.equals("triangle")){
-            drawTriangleFractal(100,100,400,-400, Color.RED, canvas, 0);
+            drawTriangleFractal(100,100,400,0, Color.getHSBColor(0,255,0), canvas, 0); //canvas is 800x800
         }
         else if (type.equals("rectangle")){
             drawRectangleFractal(100,100,0,0,Color.decode("red"),canvas,0);
@@ -34,10 +34,10 @@ public class FractalDrawer {
     //TODO:
     // drawTriangleFractal draws a triangle fractal using recursive techniques
     public void drawTriangleFractal(double width, double height, double x, double y, Color c, Canvas can, int level){
-        if (level <= 7) {
-            Triangle shapeTriangle = new Triangle(width, height, x, y);
+        if (level <= 17) {
+            Triangle shapeTriangle = new Triangle(x, y, width, height);
             can.drawShape(shapeTriangle);
-            drawTriangleFractal(width, height, x + 150, y + 150, c, can, level+1);
+            drawTriangleFractal(0.8 *width, 0.8 * height, x, y + height - 10, c, can, level+1);
         }
         else {
             System.out.println("Exceeded recursion amount");
