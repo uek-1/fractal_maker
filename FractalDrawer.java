@@ -36,6 +36,12 @@ public class FractalDrawer {
     public void drawTriangleFractal(double width, double height, double x, double y, Color color, Canvas can, int level){ // ideally, returns double area of the fractal.
         if (level <= 7) {
             double scaleFactor = 1;
+            if (level % 2 == 1){
+                color = Color.red;
+            }
+            else {
+                color = Color.green;
+            }
             System.out.println(level + ":" + scaleFactor +" w:" + width);
             Triangle shapeTriangle1 = new Triangle(x, 200, width, height * Math.pow(-1, level));
             shapeTriangle1.setColor(color);
