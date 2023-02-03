@@ -19,7 +19,7 @@ public class FractalDrawer {
             drawCircleFractal(100,0,0,Color.decode("red"),canvas,0);
         }
         else if (type.equals("triangle")){
-            drawTriangleFractal(100,100,400,0, Color.getHSBColor(0,255,0), canvas, 0); //canvas is 800x800
+            drawTriangleFractal(200,200,0,200, Color.green, canvas, 0); //canvas is 800x800
         }
         else if (type.equals("rectangle")){
             drawRectangleFractal(100,100,0,0,Color.decode("red"),canvas,0);
@@ -33,14 +33,28 @@ public class FractalDrawer {
 
     //TODO:
     // drawTriangleFractal draws a triangle fractal using recursive techniques
-    public void drawTriangleFractal(double width, double height, double x, double y, Color c, Canvas can, int level){
-        if (level <= 17) {
-            Triangle shapeTriangle = new Triangle(x, y, width, height);
-            can.drawShape(shapeTriangle);
-            drawTriangleFractal(0.8 *width, 0.8 * height, x, y + height - 10, c, can, level+1);
+    public void drawTriangleFractal(double width, double height, double x, double y, Color color, Canvas can, int level){ // ideally, returns double area of the fractal.
+        if (level <= 7) {
+            double scaleFactor = 1;
+            System.out.println(level + ":" + scaleFactor +" w:" + width);
+            Triangle shapeTriangle1 = new Triangle(x, 200, width, height * Math.pow(-1, level));
+            shapeTriangle1.setColor(color);
+
+            Triangle shapeTriangle2 = new Triangle(0, y, width, height);
+            shapeTriangle2.setColor(color);
+
+            Triangle shapeTriangle3 = new Triangle(x, y, width, height * Math.pow(-1, level));
+            shapeTriangle3.setColor(color);
+
+            can.drawShape(shapeTriangle1);
+            can.drawShape(shapeTriangle2);
+            can.drawShape(shapeTriangle3);
+
+            drawTriangleFractal(0.775304 *width, 0.775304 * height, x + width, y + 0.775304*height, color, can, level+1);
         }
         else {
             System.out.println("Exceeded recursion amount");
+            return;
         }
     }
 
