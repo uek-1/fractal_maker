@@ -1,10 +1,13 @@
+//Written by Vivek Kethineni, kethi012
 import java.awt.Color;
 public class Circle {
     double x;
     double y;
+
     double radius;
     Color color;
     public Circle (double x, double y, double radius) {
+        // x and y coordiantes refer to location of the center of the circle.
         this.x = x;
         this.y = y;
         this.radius = radius;

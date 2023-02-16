@@ -1,17 +1,19 @@
+//Written by Vivek Kethineni, kethi012
 import java.awt.Color;
 public class Triangle {
     double x;
     double y;
     double width;
     double height;
-    double diagonalLength = Math.sqrt(Math.pow((width/2),2) + Math.pow(height,2));
+    double diagonalLength = Math.sqrt(Math.pow((width/2),2) + Math.pow(height,2)); // pythagorean theorem. width divided by 2 because the diagonal ends at the midpoint due to the triangle being isosceles.
     Color color;
     public Triangle(double x, double y, double width, double height) {
         this.x = x;
         this.y = y;
+        //x,y refers to the bottom left of the isosceles triangle being created
         this.width = width;
         this.height = height;
-        //x,y refers to the bottom left of the isoscles triangle being created
+
     }
 
     public double calculatePerimeter(){

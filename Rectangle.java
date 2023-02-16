@@ -1,3 +1,4 @@
+//Written by Vivek Kethineni, kethi012
 import java.awt.Color;
 public class Rectangle {
     double x;
@@ -8,6 +9,7 @@ public class Rectangle {
     public Rectangle(double x, double y, double width, double height){
         this.x = x;
         this.y = y;
+        //x and y coordinates refer to the location of the top left corner of the rectangle
         this.width = width;
         this.height = height;
     }
